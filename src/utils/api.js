@@ -27,13 +27,13 @@ class Api {
       .then(this._checkResponse)
   }
 
-  editProfile(name, about) {
+  updateUserInfo(data) {
     return fetch(`${this._url}/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        name: name,
-        about: about
+        name: data.name,
+        about: data.about
       })
     })
       .then(this._checkResponse)
@@ -50,13 +50,13 @@ class Api {
       .then(this._checkResponse)
   }
 
-  postNewCard(name, link) {
+  addNewCard(data) {
     return fetch(`${this._url}/cards`, {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({
-        name: name,
-        link: link
+        name: data.name,
+        link: data.link
       })
     })
       .then(this._checkResponse)
