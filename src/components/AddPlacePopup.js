@@ -7,14 +7,15 @@ function AddPlacePopup({ onSubmit, isOpen, onCloseClick, onClose }) {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-
     onSubmit({ name, link });
-    setName('');
-    setLink('');
   }
 
-
-
+  React.useEffect(() => {
+    if (isOpen) {
+      setName('');
+      setLink('');
+    }
+  }, [isOpen]);
 
   return (
     <PopupWithForm

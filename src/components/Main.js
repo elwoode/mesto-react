@@ -16,11 +16,10 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace, cards, onCardClick, onC
         <button className="profile__add-button" type="button" onClick={onAddPlace} />
       </section>
 
-
       <section className="elements">
-        {cards.map((card, id) => (
+        {cards.map((card) => (
           <Card
-            key={id}
+            key={card._id}
             card={card}
             link={card.link}
             name={card.name}

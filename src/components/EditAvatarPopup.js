@@ -9,8 +9,11 @@ function EditAvatarPopup({ onSubmit, isOpen, onCloseClick, onClose }) {
     onSubmit({
       avatar: inputRef.current.value
     });
-    inputRef.current.value = ''
   }
+
+  React.useEffect(() => {
+    inputRef.current.value = '';
+  }, [isOpen]);
 
   return (
     <PopupWithForm
