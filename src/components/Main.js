@@ -21,9 +21,6 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace, cards, onCardClick, onC
           <Card
             key={card._id}
             card={card}
-            link={card.link}
-            name={card.name}
-            likes={card.likes.length}
             onCardClick={onCardClick}
             onCardLike={onCardLike}
             onCardDelete={onCardDelete}

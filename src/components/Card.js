@@ -1,7 +1,7 @@
 import React from "react";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
-function Card({ onCardClick, card, link, name, likes, onCardLike, onCardDelete }) {
+function Card({ onCardClick, card, onCardLike, onCardDelete }) {
   const currentUser = React.useContext(CurrentUserContext);
   const isOwn = card.owner._id === currentUser._id;
   const isLiked = card.likes.some(i => i._id === currentUser._id);
@@ -16,14 +16,14 @@ function Card({ onCardClick, card, link, name, likes, onCardLike, onCardDelete }
 
   return (
     <div className="elem">
-      <img className="elem__image" src={link} alt={name} title="Изображение локации указанной в описаннии к фотографии"
+      <img className="elem__image" src={card.link} alt={card.name} title="Изображение локации указанной в описаннии к фотографии"
         onClick={() => onCardClick(card)} />
       <button type="button" className={cardDeleteButtonClassName} title="Удалить" onClick={() => onCardDelete(card)} />
       <div className="elem__info">
-        <h2 className="elem__text">{name}</h2>
+        <h2 className="elem__text">{card.name}</h2>
         <div className="elem__like-container">
           <button className={cardLikeButtonClassName} type="button" title="Нравится" onClick={() => onCardLike(card)} />
-          <p className="elem__like-counter">{likes}</p>
+          <p className="elem__like-counter">{card.likes.length}</p>
         </div>
       </div>
     </div>
